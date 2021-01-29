@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- CONFIGURAÇÕES DE CONEXÃO COM BANCO DE DADOS -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/drogaria</property>
+<!-- 		<property name="connection.url">https://node155010-drogaria.jelasticlw.com.br</property> -->
+		<property name="connection.username">root</property>
+		<property name="connection.password">q1w2e3r4</property>
+<!-- 		<property name="connection.password">RVGkiv33678</property> -->
+
+		<!-- POOL DE CONEXÕES -->
+		<property name="connection.pool_size">1</property>
+
+		<!-- dialeto = idioma do banco -->
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+		<!-- GERENCIAMENTO DO CONTEXTO DAS SESSÕES -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- CACHE DE SEGUNDO NÍVEL -->
+		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+		<!-- MOSTRA OS COMANDOS SQL GERADOS E EXECUTADOS -->
+		<property name="show_sql">true</property>
+
+		<!-- CRIA AS TABELAS NO BANCO DE DADOS -->
+		<property name="hbm2ddl.auto">update</property>
+
+
+		<!-- MAPEAMENTO DAS ENTIDADES -->
+		<mapping class="br.com.drogaria.domain.Estado" />
+		<mapping class="br.com.drogaria.domain.Cidade" />
+		<mapping class="br.com.drogaria.domain.Fabricante" />
+		<mapping class="br.com.drogaria.domain.Produto" />
+		<mapping class="br.com.drogaria.domain.Pessoa" />
+		<mapping class="br.com.drogaria.domain.Usuario" />
+		<mapping class="br.com.drogaria.domain.Funcionario" />
+		<mapping class="br.com.drogaria.domain.Venda" />
+		<mapping class="br.com.drogaria.domain.ItemVenda" />
+		<mapping class="br.com.drogaria.domain.Cliente" />
+		<mapping class="br.com.drogaria.domain.Historico" />
+		<mapping class="br.com.drogaria.domain.Caixa" />
+		<mapping class="br.com.drogaria.domain.Movimentacao" />
+		<mapping class="br.com.drogaria.domain.Menu" />
+		
+
+
+
+
+
+
+
+
+	</session-factory>
+
+</hibernate-configuration>

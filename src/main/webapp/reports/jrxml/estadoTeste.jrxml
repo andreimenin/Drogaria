@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="estadoTeste" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f846430c-2eb3-49fb-a709-c2470139b687">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="drogaria Data Adapter "/>
+	<parameter name="CODIGO" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT drogaria.estado.nome,
+	drogaria.estado.sigla
+FROM drogaria.estado
+WHERE 
+	 $P!{CODIGO}]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<field name="sigla" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sigla"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<group name="nome">
+		<groupExpression><![CDATA[$F{nome}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="44" y="0" width="100" height="30" uuid="35871bfe-61f1-4c3e-a6dc-37d7cc9fab72">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb811938-eb95-47d5-92b7-4914e5796e9b"/>
+				</reportElement>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="0" width="100" height="30" uuid="c4b5ee97-4167-4b57-b3a8-011ffba48642">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1dcf39b-8e10-45af-a8d2-714c1c8e365d"/>
+				</reportElement>
+				<text><![CDATA[sigla]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="161" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="10" width="100" height="30" uuid="d672549d-6e1e-4031-98e6-d03eba4ef5eb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb811938-eb95-47d5-92b7-4914e5796e9b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="10" width="100" height="30" uuid="fd4c586d-c6cd-41d1-8aac-98d36d732616">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1dcf39b-8e10-45af-a8d2-714c1c8e365d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{sigla}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

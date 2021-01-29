@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+
+.centralizado{
+	text-align: center !important;
+}
+
+.imagemCentralizada{	
+	margin-left: auto;
+	margin-right: auto;
+	display: block;	
+}
+
+.divTopo{
+	padding-bottom: 10px;
+}
+
+.divCabecalho{
+	padding-bottom: 5px;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+font-size: 98% !important;
+}
+
+/*Aumento na largura dos ícones, pois há ícone do FontAwesome
+ que não cabem na largura padrão do primefaces ex.: fa-eye */
+ 
+.ui-icon {
+    width: 18px !important;
+}
+
+@media screen and (max-width: 40em) {
+    .ui-dialog.ui-dialog-responsive {
+        width: 90% !important;
+    }
+}
+
+
+/* corrige a opacidade da tabview do Exemplo 1 */ 
+.customTabView .ui-state-disabled{
+    opacity: .35;
+}
+
+/* corrige a opacidade */ 
+.customTabView .ui-state-active{
+    opacity: 1;
+}
+

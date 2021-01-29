@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:o="http://xmlns.jcp.org/jsf/composite/omnifaces">
+
+	<h:form id="form2">
+
+		<h:panelGrid columns="2" id="painel2">
+
+			<p:outputLabel value="CEP: " for="cep" />
+			<p:inputMask id="cep" size="10" mask="99.999-999"
+				value="#{pessoasTabViewBean.pessoa.cep}"
+				required="#{empty param[voltar2.clientId]}"
+				requiredMessage="O campo 'CEP' é obrigatório." />
+
+			<p:outputLabel value="Rua: " for="rua" />
+			<p:inputText id="rua" size="50" maxlength="100"
+				value="#{pessoasTabViewBean.pessoa.rua}"
+				required="#{empty param[voltar2.clientId]}"
+				requiredMessage="O campo 'Rua' é obrigatório." />
+
+			<p:outputLabel value="Número: " for="numero" />
+			<p:inputText id="numero" size="5" maxlength="3"
+				value="#{pessoasTabViewBean.pessoa.numero}"
+				required="#{empty param[voltar2.clientId]}"
+				requiredMessage="O campo 'Número' é obrigatório." />
+
+			<p:outputLabel value="Bairro: " for="bairro" />
+			<p:inputText id="bairro" size="30" maxlength="50"
+				value="#{pessoasTabViewBean.pessoa.bairro}"
+				required="#{empty param[voltar2.clientId]}"
+				requiredMessage="O campo 'Bairro' é obrigatório." />
+
+			<p:outputLabel value="Complemento: " for="complemento" />
+			<p:inputText id="complemento" size="30" maxlength="50"
+				value="#{pessoasTabViewBean.pessoa.complemento}"
+				required="#{empty param[voltar2.clientId]}"
+				requiredMessage="O campo 'Complemento' é obrigatório." />
+
+			<p:outputLabel value="Estado: " for="estado" />
+			<p:selectOneMenu id="estado" filter="true" widgetVar="estado"
+				converter="omnifaces.SelectItemsConverter"
+				required="#{empty param[voltar2.clientId]}"
+				requiredMessage="O campo 'Estado' é obrigatório."
+				value="#{pessoasTabViewBean.estadoSelecionado}">
+				<f:selectItem itemLabel="Selecione um estado: " itemValue="#{null}"
+					itemDisabled="true" />
+				<f:selectItems value="#{pessoasTabViewBean.estados}"
+					var="estadoCursor" itemValue="#{estadoCursor}"
+					itemLabel="#{estadoCursor.nome}" />
+
+				<p:ajax listener="#{pessoasTabViewBean.popular}"
+					update=":tv:form2:cidade" />
+			</p:selectOneMenu>
+
+			<p:outputLabel value="Cidade: " for="cidade" />
+			<p:selectOneMenu id="cidade" filter="true"
+				disabled="#{pessoasTabViewBean.desativarCidade}"
+				value="#{pessoasTabViewBean.pessoa.cidade}"
+				converter="omnifaces.SelectItemsConverter"
+				required="#{empty param[voltar2.clientId]}"
+				requiredMessage="O campo 'Cidade' é obrigatório.">
+				<f:selectItem itemLabel="Selecione uma cidade: " />
+				<f:selectItems value="#{pessoasTabViewBean.cidades}"
+					var="cidadeCursor" itemValue="#{cidadeCursor}"
+					itemLabel="#{cidadeCursor.nome}" />
+			</p:selectOneMenu>
+			<h:inputHidden id="cidadeTracker"
+				required="#{pessoasTabViewBean.desativarCidade and empty param[voltar2.clientId]}"
+				value="#{pessoasTabViewBean.cidadeHidden}" 
+				requiredMessage="O campo 'Cidade' é obrigatório." />
+
+		</h:panelGrid>
+
+		<h:panelGrid columns="2" id="botoes2" style="margin-top:10px;">
+			<p:commandButton id="voltar" value="Voltar" 
+				binding="#{voltar2}" update="tv opL"
+				action="#{pessoasTabViewBean.voltar}" icon="fa fa-1x fa-arrow-left">
+
+			</p:commandButton>
+			<p:commandButton id="continuar" value="Continuar"
+				update="tv opL form2 :mensagem" process="form2"
+				icon="fa fa-1x fa-arrow-right"
+				action="#{pessoasTabViewBean.continuar}" />
+		</h:panelGrid>
+
+	</h:form>
+
+
+</ui:composition>

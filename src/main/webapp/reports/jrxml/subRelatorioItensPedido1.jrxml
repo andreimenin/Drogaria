@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRelatorioItensPedido" pageWidth="556" pageHeight="556" columnWidth="556" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e32115f6-b98e-4002-a13c-ad4bf21e2e73">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="value"/>
+	<parameter name="totalListItens" class="java.lang.Integer" isForPrompting="false">
+		<parameterDescription><![CDATA[totalListItens]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="valor" class="java.lang.String">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="valorTotalItem" class="java.lang.String">
+		<fieldDescription><![CDATA[valorTotalItem]]></fieldDescription>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[descricao]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.String">
+		<fieldDescription><![CDATA[quantidade]]></fieldDescription>
+	</field>
+	<field name="numeroItem" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroItem]]></fieldDescription>
+	</field>
+	<variable name="rowsOnPage" class="java.lang.Integer" resetType="Page">
+		<variableExpression><![CDATA[$V{rowsOnPage} + 1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="rowsOnPage_1" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{PAGE_NUMBER}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="rowsOnPage_2" class="java.lang.Integer" resetType="Column">
+		<variableExpression><![CDATA[$V{REPORT_COUNT}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="rowsOnPage_3" class="java.lang.Integer" resetType="Page">
+		<variableExpression><![CDATA[$V{REPORT_COUNT}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="41">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT}>0]]></printWhenExpression>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="556" height="41" backcolor="#F0EDD8" uuid="53d6f6b1-727e-4216-9c16-9e3d0ad0f927">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box padding="1">
+					<pen lineWidth="2.0" lineColor="#F0EDD8"/>
+					<topPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Itens do Pedido]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="119" splitType="Prevent">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement x="0" y="0" width="556" height="119" uuid="a21cb34c-fda9-4b3c-a842-382f485d450f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="30" width="100" height="30" uuid="ca2cfeb6-003e-4b37-a2d0-b222f013f4d1">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box padding="2">
+						<pen lineWidth="0.0" lineColor="#DBDBDB"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<text><![CDATA[Descrição:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="60" width="100" height="30" uuid="66c5039c-1fa3-4653-bbcf-011d20502256">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box padding="2">
+						<pen lineWidth="0.0" lineColor="#DBDBDB"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<text><![CDATA[Quantidade:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement stretchType="RelativeToTallestObject" x="0" y="90" width="100" height="30" uuid="2b7232ae-4f63-4be8-8c74-5854636ea059">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box padding="2">
+						<pen lineWidth="0.0" lineColor="#DBDBDB"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<text><![CDATA[Valor total:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="30" uuid="b9fde651-0b0d-446e-b057-2a336a849657">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box padding="2">
+						<pen lineWidth="0.0" lineColor="#DBDBDB"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<text><![CDATA[Item:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="30" uuid="96a51bbd-872f-4c78-a695-465fb8a9c53d">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineColor="#DBDBDB"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{numeroItem}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Page">
+					<reportElement key="textNumRegistros" x="205" y="0" width="112" height="20" uuid="0940bce6-118f-47bc-81f6-ae03ca55ddcb"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["Mostrando " + $V{rowsOnPage} + " registros de "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="30" width="100" height="30" uuid="d013441a-01cb-496d-937e-78cbd82fdab2">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineColor="#DBDBDB"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="60" width="100" height="30" uuid="3881766b-4dd3-4dbe-be9b-54100076e1f2">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineColor="#DBDBDB"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement stretchType="RelativeToTallestObject" x="100" y="90" width="100" height="30" uuid="63b46f44-615b-4b86-9296-5986a689ed45">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineColor="#DBDBDB"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valorTotalItem}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="320" y="0" width="100" height="20" uuid="6f156e04-6592-424e-b674-f63fa1fe6e4c"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{totalListItens}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="205" y="30" width="100" height="20" uuid="ecadffac-1df6-4489-a6ca-d342d208cbb1"/>
+					<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="310" y="30" width="100" height="20" uuid="48f0c8e9-ee24-461f-907b-98b60490201c"/>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="22" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT} < $P{totalListItens}]]></printWhenExpression>
+			<line>
+				<reportElement x="0" y="9" width="210" height="1" uuid="77cfcd81-4c7d-46da-9f06-25158c1e4f64">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

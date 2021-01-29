@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/templates/modelo.xhtml">
+
+	<ui:define name="conteudo">
+		
+			 
+             <li><span> Unidade de Conservação </span></li>           
+		
+		
+	
+			<div class="container-fluid">
+				<div class="panel">
+             		<div class="form-group">
+					<h:form id="editarForm" acceptcharset="ISO-8859-1" styleClass="form-horizontal">
+						<p:tabView id="tabView" activeIndex="pessoasTabViewBean.activeIndex}" cache="false" dynamic="true"> 								
+						  	 <p:ajax event="tabChange" listener="#{pessoasTabViewBean.controlarAbaSelecionada}" update=":editarForm:botoes"/>
+						     <p:tab title="Informações Gerais">
+		       					<div style="padding: 0 5px 0 5px" >
+		       						<ui:include src="abas/_aba_docPessoa.xhtml" rendered="pessoasTabViewBean.activeIndex eq 0}"/>
+		       					</div>
+		       				 </p:tab>	
+					    	<p:tab title="Atos Legais">
+								<div style="padding: 0 5px 0 5px">
+									<ui:include src="abas/_aba_enderPessoa.xhtml" rendered="pessoasTabViewBean.activeIndex eq 1}"/>
+								</div>
+							</p:tab>								
+							<p:tab title="Fatores Bióticos">
+								<div style="padding: 0 5px 0 5px">
+									<ui:include src="abas/_aba_docPessoa.xhtml" rendered="pessoasTabViewBean.activeIndex eq 2}"/>
+								</div>
+							</p:tab>
+					       	
+					       						        						 
+					    </p:tabView>
+					    <hr/>
+						<p:panel id="botoes">
+						    <div class="buttons text-center">
+								<p:commandLink styleClass="btn btn-primary" process="@this" action="pessoasTabViewBean.voltar}" update="tabView">
+						 			<em class="fa fa-arrow-left"/>&nbsp; Voltar
+								</p:commandLink> 
+								<p:commandLink styleClass="btn btn-primary" ajax="false" action="pessoasTabViewBean.continuar}" rendered="pessoasTabViewBean.activeIndex ne 6}">
+									<em class="fa fa-arrow-right" />&nbsp; Continuar
+								</p:commandLink>
+								<p:commandLink styleClass="btn btn-primary" ajax="false" action="pessoasTabViewBean.continuar}" rendered="pessoasTabViewBean.activeIndex eq 6}">
+									<em class="fa fa-check" />&nbsp; Finalizar Cadastro
+								</p:commandLink>
+							</div>
+						</p:panel>
+					</h:form>
+				</div>
+			</div>
+		</div>
+		
+	</ui:define>	
+</ui:composition>

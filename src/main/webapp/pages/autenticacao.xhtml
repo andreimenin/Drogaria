@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>drogaria Login</title>
+</h:head>
+<h:body>
+
+	<p:growl id="mensagem" />
+
+	<p:dialog header="Autenticação" closable="false" draggable="false"
+		modal="true" resizable="false" visible="true">
+
+		<h:form id="formulario">
+			<h:panelGrid columns="2">
+
+				<p:outputLabel for="cpf" value="CPF:" />
+				<p:inputMask mask="999.999.999-99" id="cpf" required="true"
+					requiredMessage="O campo 'CPF' é obrigatório."
+					value="#{autenticacaoBean.usuario.pessoa.cpf}" />
+
+				<p:outputLabel for="senha" value="Senha:" />
+				<p:inputText size="10" maxlength="8" id="senha" required="true"
+					requiredMessage="O campo 'Senha' é obrigatório."
+					value="#{autenticacaoBean.usuario.senha}" />
+
+
+			</h:panelGrid>
+			<h:panelGrid>
+				<p:commandButton update=":mensagem" value="Entrar"
+					actionListener="#{autenticacaoBean.autenticar}" />
+
+			</h:panelGrid>
+
+		</h:form>
+	</p:dialog>
+
+</h:body>
+</html>

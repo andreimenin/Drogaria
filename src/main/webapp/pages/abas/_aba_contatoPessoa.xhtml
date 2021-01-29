@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:o="http://xmlns.jcp.org/jsf/composite/omnifaces">
+
+	<h:form id="form3">
+		<h:panelGrid columns="2" id="painel3">
+
+			<p:outputLabel value="Telefone: " for="telefone" />
+			<p:inputMask id="telefone" size="15" mask="(99)9999-9999"
+				value="#{pessoasTabViewBean.pessoa.telefone}"
+				required="#{empty param[voltar3.clientId]}"
+				requiredMessage="O campo 'Telefone' é obrigatório."
+				indicateRequired="true" />
+
+			<p:outputLabel value="Celular: " for="celular" />
+			<p:inputMask id="celular" size="15" mask="(99)99999-9999"
+				value="#{pessoasTabViewBean.pessoa.celular}"
+				required="#{empty param[voltar3.clientId]}"
+				requiredMessage="O campo 'Celular' é obrigatório."
+				indicateRequired="true" />
+
+			<p:outputLabel value="E-mail: " for="email" />
+			<p:inputText id="email" size="50" maxlength="80"
+				value="#{pessoasTabViewBean.pessoa.email}"
+				required="#{empty param[voltar3.clientId]}"
+				requiredMessage="O campo 'Email' é obrigatório."
+				indicateRequired="true" />
+
+		</h:panelGrid>
+
+		<h:panelGrid columns="2" id="botoes3" style="margin-top:10px;">
+			<p:commandButton id="voltar" value="Voltar"
+				rendered="#{pessoasTabViewBean.activeIndex ne 0}" process="form3"
+				binding="#{voltar3}" update="tv painel opL form3"
+				icon="fa fa-1x fa-arrow-left" action="#{pessoasTabViewBean.voltar}">
+
+			</p:commandButton>
+			<p:commandButton id="continuar" value="Salvar"
+				onstart="PF('statusDialog').show()"
+				onsuccess="PF('statusDialog').hide()" update="tv opL form3"
+				 action="#{pessoasTabViewBean.continuar}"
+				icon="fa fa-1x fa-save">
+				<f:actionListener
+					type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+			</p:commandButton>
+
+		</h:panelGrid>
+
+	</h:form>
+
+</ui:composition>
